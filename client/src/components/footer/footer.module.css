@@ -1,0 +1,91 @@
+/* footer styles */
+footer {
+    width: 100%;
+    height: auto; /* Updated height to auto to adjust based on content */
+    margin-top: 5rem;
+    background-color: rgb(65, 23, 154);
+    padding: 2rem 0; /* Added padding for spacing */
+  }
+  
+  .wrapper {
+    width: 85%;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap; /* Added flex-wrap to handle responsiveness */
+  }
+  
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: aliceblue;
+  }
+  
+  .col > h2 {
+    margin-bottom: 15px;
+    justify-self: flex-start;
+    margin-left: -5px;
+    color: aliceblue;
+    font-size: 20px; /* Increased font size for heading */
+    font-weight: 600; /* Added font weight for heading */
+  }
+  
+  .col > p {
+    max-width: 425px;
+    color: rgb(232, 225, 225);
+    font-size: 15px;
+  }
+  
+  .col a {
+    color: aliceblue;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .icon {
+    font-size: 18px; /* Adjusted font size for icons */
+  }
+  
+  .privacyPolicy {
+    text-align: center; /* Centered privacy policy link */
+    margin-top: 1rem; /* Added margin for spacing */
+  }
+  
+  .privacyPolicy a {
+    color: aliceblue;
+    text-decoration: underline; /* Underlined the privacy policy link */
+  }
+  
+  /* !!!!!!!! RESPONSIVE !!!!!!!! */
+  
+  /* Large devices (laptops/desktops, 992px and up) */
+  @media only screen and (max-width: 992px) {
+    footer {
+      padding-top: 100px;
+    }
+  
+    .wrapper {
+      align-items: flex-start;
+      gap: 1.25rem;
+    }
+  
+    .col:nth-child(2) {
+      font-size: 15px;
+      gap: 0.3rem;
+    }
+  
+    .col > h2 {
+      font-size: 18px;
+      font-weight: 600;
+    }
+  
+    .col > p {
+      max-width: 325px;
+    }
+  }
+  

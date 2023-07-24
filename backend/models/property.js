@@ -17,7 +17,7 @@ const PropertySchema = new mongoose.Schema({
 
     type:{
         type: String,
-        enum:["City", "Village", "Mountain"],
+        enum:["flat", "apartment", "house"],
         required: true
     },
 
@@ -39,6 +39,8 @@ const PropertySchema = new mongoose.Schema({
         type: Number,
         require:true
     },
+    
+
 
     sqmeters:{
         type:Number,
@@ -58,7 +60,7 @@ const PropertySchema = new mongoose.Schema({
 
     featured: {
         type: Boolean,
-        default: false,
+        default: true ,
     }
 }, {timestamps: true})
 

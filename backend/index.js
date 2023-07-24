@@ -26,7 +26,8 @@ mongoose
   .catch((error) => {
     console.error('Error connecting to MongoDB:', error);
   });
-
+  
+app.use('/images', express.static('public/images'))
 
   // router 
 app.use(cors())
@@ -35,3 +36,4 @@ app.use(express.urlencoded({extended: true }))
 app.use("/auth", authController)
 app.use("/property", propertyController)
 app.use("/upload", uploadController )
+
