@@ -65,6 +65,10 @@ const FeaturedProperties = () => {
                     <span>{property.beds} <FaBed className={classes.icon}/> </span>
                     <span>{property.sqmeters} <FaSquareFull className={classes.icon}/> </span>
                   </div>
+                  <div className={classes.desc}>
+                    {property.desc}
+
+                  </div>
 
 
                 </div>
