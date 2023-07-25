@@ -77,7 +77,7 @@
     text-align: center;
 }
 
-.property>.quantity {
+.property > .quantity {
     position: absolute;
     bottom: 5rem;
     left: 2rem;
