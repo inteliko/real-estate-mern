@@ -11,10 +11,13 @@ const PopularProperties = () => {
   const [numProperties, setNumProperties] = useState({})
 
 
+
   useEffect(() => {
     const fetchNumberProperties = async() => {
       try {
          const data = await request('/property/find/types', 'GET')
+
+        
 
          setNumProperties(data)
 

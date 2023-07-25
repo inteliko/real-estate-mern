@@ -13,19 +13,16 @@ const app = express();
 //mongo connect 
 
 mongoose
-  .connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
-  .then(() => {
-    console.log('MongoDB connected successfully');
-    app.listen(process.env.PORT, () =>
-      console.log('Server has started successfully')
-    );
-  })
-  .catch((error) => {
-    console.error('Error connecting to MongoDB:', error);
-  });
+        .connect(process.env.MONGO_URL, {
+            useNewUrlParser: true,
+            useUnifiedTopology: true,
+        })
+        .then(() => {
+            console.log("Connected to database successfully");
+        })
+        .catch((err) => {
+            console.log(`Error connecting to database: ${err}`);
+        });
   
 app.use('/images', express.static('public/images'))
 
@@ -37,3 +34,6 @@ app.use("/auth", authController)
 app.use("/property", propertyController)
 app.use("/upload", uploadController )
 
+app.listen(process.env.PORT, () => {
+  console.log(`This app is running on port ${process.env.PORT}`);
+});

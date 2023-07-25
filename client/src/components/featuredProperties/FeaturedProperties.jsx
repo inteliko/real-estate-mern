@@ -10,15 +10,24 @@ import classes from './featuredProperties.module.css'
 
 const FeaturedProperties = () => {
   const [featuredProperties, setFeaturedProperties] = useState([])
+  const filteredArray = featuredProperties.filter(obj => obj.featured === true);
+  
+
 
   useEffect(() => {
     const fetchFeatured = async() => {
       try{
-        const data = await request('property/find/featured', "GET")
-      
-        setFeaturedProperties(data)
-
-        console.log(data)
+        
+        fetch('http://localhost:5000/property/getAll')
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setFeaturedProperties(data);
+      })
 
       } catch (error){
         console.error(error.message)
@@ -29,6 +38,10 @@ const FeaturedProperties = () => {
     
   }, [])
 
+  
+
+  console.log(filteredArray)
+
   return (
     <div className={classes.container} >
       <div className={classes.wrapper}>
@@ -37,7 +50,8 @@ const FeaturedProperties = () => {
           <h2> Our featured Properties</h2>
         </div>
         <div className={classes.featuredProperties}>
-            {featuredProperties.map((property) => (
+
+            {filteredArray.map((property) => (
               <div key={property._id} className={classes.featuredProperty}>
                 <Link to={`/propertyDetail/${property._id}`} className={classes.imgContainer}> 
                   <img src={img} alt="PropertyImage" />
