@@ -1,7 +1,6 @@
 import React from 'react'
 import { useEffect } from 'react'
 import { useState } from 'react'
-import { request } from '../../Util/fetchAPI'
 import img from '../assests/2bed.jpeg'
 import person from '../assests/agent.png'
 import {Link } from 'react-router-dom'
@@ -54,7 +53,7 @@ const FeaturedProperties = () => {
             {filteredArray.map((property) => (
               <div key={property._id} className={classes.featuredProperty}>
                 <Link to={`/propertyDetail/${property._id}`} className={classes.imgContainer}> 
-                  <img src={img} alt="PropertyImage" />
+                  <img src={ property.img? `http://localhost:5000/images/${property.img}` :img } alt="PropertyImage" />
                 </Link>
                 <div className={classes.details}>
                   <div className={classes.priceAndOwner}>

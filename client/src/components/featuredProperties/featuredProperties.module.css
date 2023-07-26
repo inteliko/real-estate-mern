@@ -1,9 +1,9 @@
 .container{
     height: 100%;
     width: 100% ;
-    margin: 0 auto;
+    margin-top: 7.5rem;
+    
 }
-
 .wrapper{
     max-width: 1180px;
     height: 100%;
@@ -33,7 +33,7 @@
 .featuredProperties{
     width: 100%;
     margin-top: 3rem;
-    display: flex;
+    display: grid;
     flex-wrap: wrap;
     gap: 2rem;
 }
@@ -49,9 +49,9 @@
 
 .featuredProperties > .featuredProperty > .imgContainer > img {
     height: 100%;
-    width: 100%;
+    width: 50%;
     object-fit: cover;
-    transition:150ms all;
+    transition: 150ms all;
 }
 
 .featuredProperties > .featuredProperty > .imgContainer > img:hover{
@@ -74,7 +74,7 @@
 }
 
 .featuredProperty > .details > .priceAndOwner{
-    width: 80%;
+    width: 40%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -115,3 +115,14 @@ desc{
     font-size: 18px;
     color: #222;
 }
+
+
+@media screen and (max-width: 768px) {
+    .featuredProperties > .featuredProperty > .imgContainer {
+      width: 100%;
+    }
+  
+    .featuredProperty > .details > .priceAndOwner {
+      width: 100%;
+    }
+  }
