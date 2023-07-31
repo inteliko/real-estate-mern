@@ -39,7 +39,7 @@ const FeaturedProperties = () => {
 
   
 
-  console.log(filteredArray)
+ 
 
   return (
     <div className={classes.container} >

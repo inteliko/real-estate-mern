@@ -1,14 +1,21 @@
 import React from 'react'
 import { useState } from 'react'
 import { AiOutlineSearch } from 'react-icons/ai'; 
+import { useNavigate } from 'react-router-dom';
 import classes from './hero.module.css'
+
 
 
 const Hero = () => {
   const [type, setType] = useState("flat")
   const[continent, setContinent] = useState("0")
   const [priceRange, setPriceRange] = useState("0")
+  const navigate = useNavigate()
+
+
   const handleSearch = () => {
+
+    navigate(`/properties?type=${type}&continent=${continent}&priceRange=${priceRange}`)
 
   }
   return (
@@ -45,7 +52,7 @@ const Hero = () => {
           <option value="4"> California </option>
           <option value="1">Delaware</option>
         </select>
-        <AiOutlineSearch className={classes.searchIcon} />
+        <AiOutlineSearch onClick={handleSearch} className={classes.searchIcon} />
 
       </div>
 
