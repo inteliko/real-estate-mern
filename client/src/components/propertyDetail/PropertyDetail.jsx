@@ -1,43 +1,53 @@
 import React from 'react'
 import classes from './propertyDetail.module.css'
-import {useSelector} from 'react-redux'
-import { useState } from 'react'
-
-import { useRef } from 'react'
-import { useEffect } from 'react'
-import {request} from '../../Util/fetchAPI'
+import { useSelector } from 'react-redux'
+import { useState, useRef, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 
-
-
-
 const PropertyDetail = () => {
-  const {user} = useSelector((state) => state.auth)
+  const { user } = useSelector((state) => state.auth)
   const [propertyDetail, setPropertyDetail] = useState(null)
   const [showForm, setShowForm] = useState(false)
   const [title, setTitle] = useState('')
   const [desc, setDesc] = useState('')
+
   const {id} = useParams()
-  const fromRef = useRef()
+  const formRef = useRef()
+
+  
 
 
   useEffect(() => {
-    const fetchDeatils = async() => {
-      try{
-        const data = await request(`/property/find/${id}`, 'GET')
-        setPropertyDetail(data)
+    const fetchPropertyDetail = async () => {
+      try {
+        const response = await fetch(`http://localhost:5000/property/find/${id}`, {
+          method: 'GET'
+        });
+        
+        console.log(id)
 
-        console.log(data)
-      } catch (error) {
-        console.error(error)
-      }
+        if (!response.ok) {
+          throw new Error('Failed to fetch data');
+        }
+        const data = await response.json();
+        setPropertyDetail(data);
+
 
       
-    } 
-    fetchDeatils()
-  }, [id])
+        
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
 
- 
+    } ;
+
+    fetchPropertyDetail(); 
+
+  }, [id]); 
+
+  console.log(propertyDetail)
+
+
 
   const handleCloseForm = () => {
     setShowForm(false)
@@ -45,8 +55,9 @@ const PropertyDetail = () => {
     setDesc("")
   }
 
-  const handleContactOwner = async(e) => {
+  const handleContactOwner = async (e) => {
     e.preventDefault();
+    
   }
 
 
@@ -55,37 +66,34 @@ const PropertyDetail = () => {
   return (
     <div className={classes.container}>
       <div className={classes.wrapper}>
-        <div className={classes.left}>
-          <img src={`http://localhost:5000/images/${propertyDetail.images}`} alt="" />
-        </div>
-
-        <div className={classes.right}>
-          <h3 className={classes.title} >
-              Title: {`${propertyDetail.title}`}
-          </h3>
-          <div className={classes.details}>
-            <div className={classes.typeAndContinent}>
-              <div>Type: <span>{`${propertyDetail.type}`}</span>
-              </div>
-              <div>Continent: <span>{`${propertyDetail.continent}`}</span>
-              </div>
-            </div>
-            <div className={classes.priceAndOwner}>
-              <span className={classes.price} ><span> Price $ </span> {`${propertyDetail.price}`} </span>
-              <span style={{display: 'flex', alignItems:'center', gap:'12px' }} ></span>
-              Owner <img src={`http://localhost:5000/images/${propertyDetail.currentOwner.profileImg}`} alt="" />
-            </div>
-            <div className={classes.moreDetails}>
-              <span  ></span>
-            </div>
+        {propertyDetail && propertyDetail.img ? (
+          <div className={classes.left}>
+            <img src={`http://localhost:5000/images/${propertyDetail.img}`} alt="" />
           </div>
+        ) : (
+          <div className={classes.left}>
+            {/* Optionally, you can provide a placeholder image or an alternative message */}
+            {/* <img src={placeholderImage} alt="Placeholder" /> */}
+            <p>No image available</p>
+          </div>
+        )}
+        <div className={classes.right}>
+          {propertyDetail && propertyDetail.title ? (
+            <h3 className={classes.title}>
+              Title: {`${propertyDetail.title}`}
+            </h3>
+          ) : (
+            <p>No title available</p>
+          )}
+          {/* Render other content for the right side if needed */}
         </div>
-
-
       </div>
-
     </div>
-  )
+  );
+  
+
+
+
 }
 
-export default PropertyDetail
+export default PropertyDetail;

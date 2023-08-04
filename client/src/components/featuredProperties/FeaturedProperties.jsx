@@ -28,6 +28,7 @@ const FeaturedProperties = () => {
         setFeaturedProperties(data);
       })
 
+
       } catch (error){
         console.error(error.message)
       }
@@ -53,9 +54,15 @@ const FeaturedProperties = () => {
             {filteredArray.map((property) => (
               <div key={property._id} className={classes.featuredProperty}>
                 <Link to={`/propertyDetail/${property._id}`} className={classes.imgContainer}> 
-                  <img src={ property.img? `http://localhost:5000/images/${property.img}` :img } alt="PropertyImage" />
+                 
+                  <img src={ property.img ? `http://localhost:5000/images/${property.img}` :img } alt="PropertyImage" />
                 </Link>
                 <div className={classes.details}>
+                  <div className={classes.priceAndOwner} >
+                  
+                  {property.title}
+
+                  </div>
                   <div className={classes.priceAndOwner}>
                     <span className={classes.price}> ${property.price}</span>
                     <img src={person} alt="agent" className={classes.owner} />
@@ -68,7 +75,7 @@ const FeaturedProperties = () => {
                     {property.desc}
 
                   </div>
-
+                
 
                 </div>
                   

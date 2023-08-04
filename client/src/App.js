@@ -6,12 +6,10 @@ import Navbar from './components/navbar/Navbar';
 import Newsletter from './components/newsletter/Newsletter';
 import Hero from './components/hero/Hero';
 import PopularProperty from './components/popularProperty/PopularProperty';
-import Testimony from './components/Testimony/Testimony';
 import FeaturedProperties from './components/featuredProperties/FeaturedProperties';
 import Properties from './components/properties/Properties';
 import PropertyDetail from './components/propertyDetail/PropertyDetail'; // Correct the import statement
-
-import Slider from './components/slider/slider';
+import about from './components/about/about';
 import Signin from './components/signin/Signin';
 import Signup from './components/signup/Signup';
 
@@ -25,8 +23,7 @@ function App() {
             <Hero />  
             <PopularProperty /> 
             <FeaturedProperties /> 
-            <Slider /> 
-            <Testimony /> 
+            
             <Newsletter /> 
             <Footer /> 
           </>
@@ -39,9 +36,9 @@ function App() {
             <Navbar /> 
             <Properties /> 
             <Footer /> 
-          </>
+          </>   
         } /> 
-        <Route path='/propertyDetail/:id' element={
+        <Route path={`/propertyDetail/:id`} element={
           <>
             <Navbar /> 
             <PropertyDetail />
@@ -50,7 +47,15 @@ function App() {
         } /> 
          
         {/* Make sure you have a component named 'about' */}
-        <Route path='/about' element={<about />} /> 
+        <Route path='/about' element={
+        
+       
+        < about />
+
+                  
+
+      
+      } /> 
         
       </Routes>
     </div>

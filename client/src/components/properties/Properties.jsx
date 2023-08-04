@@ -40,6 +40,8 @@ useEffect(() => {
       const response = await fetch('http://localhost:5000/property/getAll', {
         method: 'GET'
       });
+
+      
       if (!response.ok) {
         throw new Error('Failed to fetch data');
       }
@@ -67,6 +69,8 @@ useEffect(() => {
   
       arrQuery.forEach((option, idx) => {
         console.log(option.split("="))
+
+    
   
         const key = option.split("=")[0]
         const value = option.split("=")[1]
@@ -93,7 +97,8 @@ useEffect(() => {
     } else {
       options = param
     }
-
+  
+    
 
 
     const filteredProperties = allProperties.filter((property) => {

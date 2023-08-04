@@ -61,22 +61,21 @@ propertyController.get('/find/types', async (req, res) => {
 });
 
 // Get individual property
-propertyController.get('/find', async (req, res) => {
-  console.log(hello)
+
+propertyController.get('/find/:id', async (req, res) => {
+  
+
   try {
-    const property = await Property.find()(
-      'currentOwner',
-      '-password'
-    );
-    if (!property) {
-      throw new Error('Property with the provided ID does not exist');
-    } else {
-      return res.status(200).json(property);
-    }
+    const property = await Property.findById(req.params.id);
+     
+   
+
+   if(property ){res.status(200).json(property)}
   } catch (error) {
     return res.status(500).json(error.message);
   }
 });
+
 
 
 
@@ -101,6 +100,10 @@ propertyController.post('/', verifyToken, async (req, res) => {
 propertyController.put('/:id', verifyToken, async (req, res) => {
   try {
     const property = await Property.findById(req.params.id);
+    console.log(id)
+
+    
+
     if (property.currentOwner.toString() !== req.user.id.toString()) {
       throw new Error('You are not allowed to update other people\'s properties');
     } else {
@@ -117,9 +120,15 @@ propertyController.put('/:id', verifyToken, async (req, res) => {
 });
 
 // Delete property
-propertyController.delete('/:id', verifyToken, async (req, res) => {
+propertyController.get('/:id', verifyToken, async (req, res) => {
+
+  console.log('Hellow')
+
   try {
     const property = await Property.findById(req.params.id);
+
+    console.log(req.params.id)
+
     if (property.currentOwner.toString() !== req.user.id.toString()) {
       throw new Error('You are not allowed to delete other people\'s properties');
     } else {
