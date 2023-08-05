@@ -50,7 +50,7 @@ const Hero = () => {
           <option value="2">Alaska</option>
           <option value="3">Maryland</option>
           <option value="4"> California </option>
-          <option value="1">Delaware</option>
+          <option value="5">Delaware</option>
         </select>
         <AiOutlineSearch onClick={handleSearch} className={classes.searchIcon} />
 

@@ -57,6 +57,7 @@ const FeaturedProperties = () => {
                  
                   <img src={ property.img ? `http://localhost:5000/images/${property.img}` :img } alt="PropertyImage" />
                 </Link>
+                
                 <div className={classes.details}>
                   <div className={classes.priceAndOwner} >
                   
@@ -69,7 +70,7 @@ const FeaturedProperties = () => {
                   </div>
                   <div className={classes.moreDetails}>
                     <span>{property.beds} <FaBed className={classes.icon}/> </span>
-                    <span>{property.sqmeters} <FaSquareFull className={classes.icon}/> </span>
+                    <span>{property.purpose} <FaSquareFull className={classes.icon}/> </span>
                   </div>
                   <div className={classes.desc}>
                     {property.desc}

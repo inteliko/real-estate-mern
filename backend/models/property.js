@@ -40,7 +40,17 @@ const PropertySchema = new mongoose.Schema({
         require:true
     },
     
+    purpose:{
 
+        type:String,
+        require: true,
+        min: 20,
+    },
+
+    phone:{
+        type:Number,
+        require:true
+    },
 
     sqmeters:{
         type:Number,

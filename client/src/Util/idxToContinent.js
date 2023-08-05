@@ -1,6 +1,6 @@
 export const arrContinent = [
     'NewYork',
-    'Washinton',
+    'Washington',
     'Alaska',
     'Maryland',
     'California',

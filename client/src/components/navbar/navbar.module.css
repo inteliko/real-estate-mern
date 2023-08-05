@@ -143,8 +143,8 @@
 
 .removeIcon{
     position: absolute;
-    top: 1rem ;
-    right: 1rem;
+    top: 3.5rem ;
+    right: 20rem;
     font-size: 22px;
     cursor: pointer;
 }

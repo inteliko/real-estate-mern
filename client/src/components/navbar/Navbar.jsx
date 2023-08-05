@@ -75,6 +75,7 @@ const Navbar = () => {
         </Link>
         <ul className={classes.center}>
           <li className={classes.listItem}> Home </li>
+      
           <li className={classes.listItem}> Property </li>
           <li className={classes.listItem}> About </li>
           <li className={classes.listItem}> Contact </li>
@@ -108,10 +109,12 @@ const Navbar = () => {
               <form onSubmit={handleListProperty} >
                 <input type="text" placeholder='Title...' name='title' onChange={handleState} />
                 <input type="text" placeholder='flat,apartment,house...' name='type' onChange={handleState} />
+                <input type="text" placeholder='Rent / Sell ' name='purpose' onChange={handleState} />
                 <input type="text" placeholder='Description...' name='desc' onChange={handleState} />
-                <input type="text" placeholder='NewYork, Washington, Dalware ' name='continent' onChange={handleState} />
+                <input type="number" placeholder='Contact Number' name='phone' onChange={handleState} />
+
+                <input type="text" placeholder='Location...' name='continent' onChange={handleState} />
                 <input type="number" placeholder='Price...' name='price' onChange={handleState} />
-                <input type="number" placeholder='Sq. meters...' name='sq.meters' onChange={handleState} />
                 <input type="number" placeholder='Beds...' name='beds' step={1} min={2} onChange={handleState} />
 
                 <div style={{ display: 'flex', alignitems: 'center', gap: '12px', width:'50%' }} >

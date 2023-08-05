@@ -3,6 +3,8 @@ import classes from './propertyDetail.module.css'
 import { useSelector } from 'react-redux'
 import { useState, useRef, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
+import {FaBed, FaPhone, FaSquareFull} from 'react-icons/fa'
+
 
 const PropertyDetail = () => {
   const { user } = useSelector((state) => state.auth)
@@ -13,6 +15,8 @@ const PropertyDetail = () => {
 
   const {id} = useParams()
   const formRef = useRef()
+
+
 
   
 
@@ -86,9 +90,72 @@ const PropertyDetail = () => {
             <p>No title available</p>
           )}
           {/* Render other content for the right side if needed */}
-        </div>
+
+
+          <div className={classes.detail}>
+  {propertyDetail ? (
+    <div>
+      <div className={classes.typeAndContinent}>
+        <div>Type: <span>{propertyDetail.type}</span></div>
+        <div>Continent: <span>{propertyDetail.continent}</span></div>
+        <div>Rent / Sell: <span>{propertyDetail.purpose}</span></div>
+        <div> Contact:  <span>{propertyDetail.phone}</span> <FaPhone className={classes.icon} /></div>
+
+
+
+       
+
+
+        
+
       </div>
+      <div className={classes.priceAndOwner}>
+        <span className={classes.price}><span>Price:</span> {propertyDetail.price}</span>
+        {propertyDetail.currentOwner ? (
+          <span style={{ display: 'flex', alignItems: 'center', gap: '12p2x' }}>
+            Owner <img src={`http://localhost:5000/images/${propertyDetail.currentOwner.profileImg}`} alt="" />
+          </span>
+        ) : (
+          <span>No owner information available</span>
+        )}
+      </div>
+      <div className={classes.moreDetails}>
+        <span>{propertyDetail.beds} <FaBed className={classes.icon} /></span> 
+     
+
+        <span>{propertyDetail.sqmeters} <FaSquareFull className={classes.icon} /></span>
+      </div>
+      <p className={classes.desc}>
+        Description: <br /> <span>{propertyDetail.desc}</span>
+      </p>
+      <button onClick={() => setShowForm(true)} className={classes.contactOwner}>
+        Contact Owner
+      </button>
     </div>
+  ) : (
+    <span>Property details not available</span>
+  )}
+</div>
+
+
+
+
+        </div>
+
+              
+              
+   
+
+
+
+
+
+
+
+        
+      
+      </div>
+    </div> 
   );
   
 

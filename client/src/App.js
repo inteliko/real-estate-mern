@@ -29,8 +29,22 @@ function App() {
           </>
         } /> 
 
-        <Route path='/Signup' element={<Signup />} /> 
-        <Route path='/Signin' element={<Signin />} /> 
+        <Route path='/Signup' element={
+        
+        <>
+        <Navbar /> 
+        <Signup />
+      
+          </> 
+        } /> 
+        <Route path='/Signin' element={
+        
+        <>
+        <Navbar /> 
+        <Signin />
+        </> 
+      
+        }/> 
         <Route path='/properties' element={
           <>
             <Navbar /> 
