@@ -9,7 +9,6 @@ import PopularProperty from './components/popularProperty/PopularProperty';
 import FeaturedProperties from './components/featuredProperties/FeaturedProperties';
 import Properties from './components/properties/Properties';
 import PropertyDetail from './components/propertyDetail/PropertyDetail'; // Correct the import statement
-import about from './components/about/about';
 import Signin from './components/signin/Signin';
 import Signup from './components/signup/Signup';
 

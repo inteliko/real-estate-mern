@@ -1,14 +1,13 @@
-.container{
+.container {
     height: 100%;
-    width: 100% ;
+    width: 100%;
     margin-top: 7.5rem;
-    
 }
-.wrapper{
+
+.wrapper {
     max-width: 1180px;
     height: 100%;
-    margin: 0 auto ; 
-
+    margin: 0 auto;
 }
 
 .titles {
@@ -16,10 +15,9 @@
     align-items: center;
     flex-direction: column;
     gap: 0.5rem;
-    
 }
 
-.titles > h5{
+.titles > h5 {
     color: #010102;
     font-size: 18px;
     font-weight: 500;
@@ -30,71 +28,65 @@
     font-size: 28px;
 }
 
-.featuredProperties{
+.featuredProperties {
     width: 100%;
     margin-top: 3rem;
     display: flex;
     flex-wrap: wrap;
     gap: 2rem;
-
     flex-direction: row;
-    justify-content: center ;
-    
+    justify-content: center;
 }
 
-.featuredProperties > .featuredProperty > .imgContainer{
-    display: inline-block;
+.featuredProperties > .featuredProperty > .imgContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 350px;
     width: 350px;
     margin-bottom: 0.5rem;
     overflow: hidden;
     cursor: pointer;
-    
-  
 }
 
 .featuredProperties > .featuredProperty > .imgContainer > img {
-    height: 50%;
+    height: 100%;
     width: 100%;
     object-fit: cover;
     transition: 150ms all;
 }
 
-.featuredProperties > .featuredProperty > .imgContainer > img:hover{
-    scale: 1.035;
+.featuredProperties > .featuredProperty > .imgContainer > img:hover {
+    transform: scale(1.035);
 }
 
-.featuredProperty .owner{
+.featuredProperty .owner {
     height: 35px;
     width: 35px;
     border-radius: 50%;
     object-fit: cover;
 }
 
-.featuredProperty > .details{
+.featuredProperty > .details {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     padding: 0 0.5rem;
-
+    width: 100%; /* Set the details container to take full width */
 }
 
-.featuredProperty > .details > .priceAndOwner{
-    width: 40%;
+.featuredProperty > .details > .priceAndOwner {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
 }
 
-.priceAndOwner > .price{
+.priceAndOwner > .price {
     font-weight: bold;
     font-size: 18px;
-
 }
 
-.moreDetails{
-
+.moreDetails {
     display: flex;
     align-items: center;
     gap: 1.25rem;
@@ -105,12 +97,12 @@
     display: flex;
     align-items: center;
     gap: 1rem;
-    border-right: 1px solid #5D3FD3 ;
+    border-right: 1px solid #5D3FD3;
     color: #5D3FD3;
     padding-right: 1.25rem;
 }
 
-.moreDetails > span:last-child{
+.moreDetails > span:last-child {
     border: none;
 }
 
@@ -120,42 +112,30 @@
     max-width: 250px;
     overflow: hidden;
     text-overflow: ellipsis;
-  }
-  
+}
 
 @media screen and (max-width: 992px) {
-   
-    .container{
+    .container {
         margin-top: 5rem;
     }
 
-    .featuredProperties{
+    .featuredProperties {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
     }
+}
 
-  }
-
-
-
-  @media screen and (max-width: 768px) {
-   
-
-    .container{
+@media screen and (max-width: 768px) {
+    .container {
         margin-top: 5rem;
     }
 
-    .featuredProperties{
+    .featuredProperties {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-
     }
-
-
-    
 }

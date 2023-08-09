@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { useState, useRef, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import {FaBed, FaPhone, FaSquareFull} from 'react-icons/fa'
+import person from '../assests/agent.png'
 
 
 const PropertyDetail = () => {
@@ -49,7 +50,6 @@ const PropertyDetail = () => {
 
   }, [id]); 
 
-  console.log(propertyDetail)
 
 
 
@@ -110,14 +110,14 @@ const PropertyDetail = () => {
 
       </div>
       <div className={classes.priceAndOwner}>
-        <span className={classes.price}><span>Price:</span> {propertyDetail.price}</span>
-        {propertyDetail.currentOwner ? (
-          <span style={{ display: 'flex', alignItems: 'center', gap: '12p2x' }}>
-            Owner <img src={`http://localhost:5000/images/${propertyDetail.currentOwner.profileImg}`} alt="" />
-          </span>
-        ) : (
-          <span>No owner information available</span>
-        )}
+        <span className={classes.price}><span>Price:</span> $ {propertyDetail.price}</span>
+        <span style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                Owner: {propertyDetail.currentOwner.profileImg
+                  ? (
+                    <img src={`http://localhost:5000/images/${propertyDetail.currentOwner.profileImg}`} className={classes.owner} />
+                  ) : (
+                    <img src={person} className={classes.owner} />)
+                }</span>
       </div>
       <div className={classes.moreDetails}>
         <span>{propertyDetail.beds} <FaBed className={classes.icon} /></span> 

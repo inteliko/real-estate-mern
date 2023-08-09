@@ -126,8 +126,12 @@ const Navbar = () => {
                     onChange={(e) => setPhoto(e.target.files[0]) } />
                     {photo && <p> {photo.name} </p>}
 
+                     
+
                 </div>
+
                 <button>List Property</button>
+               
  
               </form>
               <AiOutlineClose onClick={handleCloseForm} className={classes.removeIcon} />

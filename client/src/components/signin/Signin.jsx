@@ -64,7 +64,7 @@ const Signup = () => {
           <div className={classes.error}>
             Fill all fields!
           </div>
-        )}
+        )} 
       </div>
     </div>
   )
